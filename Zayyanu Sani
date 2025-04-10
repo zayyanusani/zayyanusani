@@ -1,0 +1,10 @@
+npm create vite@latest hello-world-react -- --template react
+   cd hello-world-react
+   npm installfunction App() {
+     return (
+       <div className="App">
+         <h1>Sannu Duniya</h1>
+         <p>Daga Zayyanu Sani, Jihar Zamfara, LGA Zurmi, Birnin</p>
+       </div>
+     );
+   }npm run dev
