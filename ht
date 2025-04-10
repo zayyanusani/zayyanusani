@@ -1,0 +1,22 @@
+function App() {
+         return (
+                   <div className="App">
+                            <h1>Sannu Duniya</h1>
+                                     <p>Daga Zayyanu Sani, Jihar Zamfara, LGA Zurmi, Birnin</p>
+                                            </div>
+         );
+}.App {
+         text-align: center;
+              margin-top: 100px;
+}
+   h1 {
+         color: green;
+   }
+      p {
+             color: blue;
+      }import './App.css';
+      }
+   }
+}
+         )
+}
