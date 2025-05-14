@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>REST API with Express.js</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background: #f9f9f9;
+      color: #333;
+    }
+    h1, h2 {
+      color: #2c3e50;
+    }
+    ul {
+      margin-left: 20px;
+    }
+    .section {
+      margin-bottom: 20px;
+      padding: 15px;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+  <h1>Create a Simple REST API with Express.js</h1>
+
+  <div class="section">
+    <h2>1. Setting Up the API</h2>
+    <ul>
+      <li>Create a basic Express.js application</li>
+      <li>Define a route for the root URL ("/") that returns a "Hello, World!" message</li>
+      <li>Implement error handling for invalid routes</li>
+      <li>Set up middleware (e.g., <code>express.json()</code>) for parsing request bodies</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>2. Creating Routes</h2>
+    <ul>
+      <li>GET /items - Retrieve all items</li>
+      <li>GET /items/:id - Retrieve a single item by ID</li>
+      <li>POST /items - Create a new item</li>
+      <li>PUT /items/:id - Update an item by ID</li>
+      <li>DELETE /items/:id - Delete an item by ID</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>3. Data Management</h2>
+    <ul>
+      <li>Create a simple in-memory data store (array)</li>
+      <li>Each item should have: id, name, description</li>
+      <li>Implement validation for incoming data</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>4. Error Handling</h2>
+    <ul>
+      <li>Return appropriate error responses (400, 404, 500)</li>
+      <li>Return meaningful error messages</li>
+      <li>Validate request parameters and body</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>5. Testing</h2>
+    <ul>
+      <li>Provide sample API requests using tools like Postman</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Submission Requirements</h2>
+    <ul>
+      <li>Working Express.js app with all routes</li>
+      <li>README.md with setup and documentation</li>
+      <li>Example requests and expected responses</li>
+    </ul>
+  </div>
+</body>
+</html>
