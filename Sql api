@@ -1,0 +1,215 @@
+# Project: Express.js + PostgreSQL REST API
+
+## File: package.json
+```json
+{
+  "name": "express-pg-api",
+  "version": "1.0.0",
+  "description": "REST API with Express.js and PostgreSQL",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "pg": "^8.10.0",
+    "morgan": "^1.10.0"
+  }
+}
+```
+
+---
+
+## File: db.js
+```javascript
+// db.js — PostgreSQL client setup
+const { Pool } = require('pg');
+
+const pool = new Pool({
+  user: process.env.PG_USER || 'postgres',
+  host: process.env.PG_HOST || 'localhost',
+  database: process.env.PG_DATABASE || 'mydb',
+  password: process.env.PG_PASSWORD || 'password',
+  port: process.env.PG_PORT || 5432,
+});
+
+module.exports = {
+  query: (text, params) => pool.query(text, params),
+};
+```
+
+---
+
+## File: index.js
+```javascript
+const express = require('express');
+const morgan = require('morgan');
+const db = require('./db');
+
+const app = express();
+const port = process.env.PORT || 3000;
+
+app.use(morgan('dev'));
+app.use(express.json());
+
+// 1. GET /users — Retrieve all users
+app.get('/users', async (req, res, next) => {
+  try {
+    const { rows } = await db.query('SELECT * FROM users ORDER BY id');
+    res.json(rows);
+  } catch (err) {
+    next(err);
+  }
+});
+
+// 2. GET /users/:id — Retrieve a user by ID
+app.get('/users/:id', async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const { rows } = await db.query('SELECT * FROM users WHERE id = $1', [id]);
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+    res.json(rows[0]);
+  } catch (err) {
+    next(err);
+  }
+});
+
+// 3. POST /users — Create a new user
+app.post('/users', async (req, res, next) => {
+  const { name, email, age } = req.body;
+  if (!name || !email || !age) {
+    return res.status(400).json({ error: 'Name, email and age are required' });
+  }
+  try {
+    const { rows } = await db.query(
+      'INSERT INTO users (name, email, age) VALUES ($1, $2, $3) RETURNING *',
+      [name, email, age]
+    );
+    res.status(201).json(rows[0]);
+  } catch (err) {
+    next(err);
+  }
+});
+
+// 4. PUT /users/:id — Update a user
+app.put('/users/:id', async (req, res, next) => {
+  const { id } = req.params;
+  const { name, email, age } = req.body;
+  if (!name || !email || !age) {
+    return res.status(400).json({ error: 'Name, email and age are required' });
+  }
+  try {
+    const { rows } = await db.query(
+      'UPDATE users SET name = $1, email = $2, age = $3 WHERE id = $4 RETURNING *',
+      [name, email, age, id]
+    );
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+    res.json(rows[0]);
+  } catch (err) {
+    next(err);
+  }
+});
+
+// 5. DELETE /users/:id — Delete a user
+app.delete('/users/:id', async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const { rows } = await db.query(
+      'DELETE FROM users WHERE id = $1 RETURNING *',
+      [id]
+    );
+    if (rows.length === 0) {
+      return res.status(404).json({ error: 'User not found' });
+    }
+    res.json({ message: 'User deleted', user: rows[0] });
+  } catch (err) {
+    next(err);
+  }
+});
+
+// 404 handler
+app.use((req, res) => {
+  res.status(404).json({ error: 'Route not found' });
+});
+
+// Global error handler
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({ error: 'Internal server error' });
+});
+
+app.listen(port, () => {
+  console.log(`Server listening on port ${port}`);
+});
+```
+
+---
+
+## File: README.md
+```markdown
+# Express.js + PostgreSQL REST API
+
+## Setup Instructions
+
+1. **Install Dependencies**:
+   ```bash
+   npm init -y
+   npm install express pg morgan
+   ```
+
+2. **Configure Database**:
+   - Start PostgreSQL and create a database (e.g. `mydb`).
+   - Run the table creation SQL:
+     ```sql
+     CREATE TABLE users (
+       id SERIAL PRIMARY KEY,
+       name VARCHAR(100),
+       email VARCHAR(100),
+       age INTEGER
+     );
+     ```
+   - Optionally set environment variables:
+     ```bash
+     export PG_USER=postgres
+     export PG_PASSWORD=your_pass
+     export PG_HOST=localhost
+     export PG_DATABASE=mydb
+     export PG_PORT=5432
+     ```
+
+3. **Start the Server**:
+   ```bash
+   node index.js
+   ```
+
+Server runs at `http://localhost:3000`.
+
+## API Endpoints
+
+| Method | Endpoint       | Description                 |
+| ------ | -------------- | --------------------------- |
+| GET    | `/users`       | Get all users               |
+| GET    | `/users/:id`   | Get user by ID              |
+| POST   | `/users`       | Create new user             |
+| PUT    | `/users/:id`   | Update existing user        |
+| DELETE | `/users/:id`   | Delete a user               |
+
+### Request/Response Examples
+
+- **Create user**:
+  ```http
+  POST /users
+  Content-Type: application/json
+
+  { "name": "Alice", "email": "alice@example.com", "age": 30 }
+  ```
+
+- **Response**:
+  ```json
+  { "id": 1, "name": "Alice", "email": "alice@example.com", "age": 30 }
+  ```
+```
