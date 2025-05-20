@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ha">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NewHausaTop - All News | Fagen Wasanni</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>ZAYYANU SANI</h1>
+    </header>
+    <main>
+        <section class="news-summary">
+            <h2>Core Labaran Da Suka Gabata</h2>
+            <p>Zaɓi nau’in labari don ganin taƙaitaccen labarai (20/05/2025):</p>
+            <select id="news-filter" onchange="filterNews()">
+                <option value="all">Duk Labarai</option>
+                <option value="crime">Cin Hanci (Crime)</option>
+                <option value="security">Tsaro (Security)</option>
+                <option value="market">Kasuwa (Market)</option>
+                <option value="sports">Wasanni (Sports)</option>
+            </select>
+            <ul id="news-list">
+                <li class="ai-generated" data-category="crime"><strong>EFCC Ta Kama Tsohon Ɗan Kwangila:</strong> Bashir Bello Ibrahim ya shiga hannun EFCC bisa zargin damfarar Naira biliyan 30 a Kaduna. 🚨 <span class="sentiment">Yanayin Labari: Mummunan (Negatif) 😞</span></li>
+                <li class="ai-generated" data-category="security"><strong>Yabo ga Matawalle:</strong> Kungiyar Nigeria Anti-corruption ta yaba wa Ministan Tsaro, Dr Bello Matawalle, bisa sauye-sauyen tsaro kamar farfaɗo da DICON. 🌟 <span class="sentiment">Yanayin Labari: Kyakkyawan (Positif) 😊</span></li>
+                <li class="ai-generated" data-category="market"><strong>Farashin Kayan Gona:</strong> An bayyana farashin kayan gona a kasuwar Giwa, Kaduna, kamar masara da shinkafa, a ranar 15/05/2025. 🌾 <span class="sentiment">Yanayin Labari: Tsaka-Tsaki (Neutral) 😐</span></li>
+                <li class="ai-generated" data-category="sports"><strong>Lamine Yamal:</strong> Ɗan wasan Barcelona ya lashe La Liga sau biyu, daidai da Ronaldo, cikin shekaru uku kacal! ⚽ <span class="sentiment">Yanayin Labari: Kyakkyawan (Positif) 😊</span></li>
+                <li class="ai-generated" data-category="sports"><strong>Raphinha:</strong> Ya ce Barcelona za ta ci kofunan Turai a kakar gaba, kamar yadda aka bayyana a 16/05/2025. 🏆 <span class="sentiment">Yanayin Labari: Kyakkyawan (Positif) 😊</span></li>
+                <li class="ai-generated" data-category="sports"><strong>Mostafa Mohammed:</strong> Ya ƙi buga wasa a ranar Asabar, 17/05/2025, da Montpellier saboda nuna adawa ga tallafin ƴan luwaɗi a Ligue 1, kuma Nantes za ta ci tararsa. 😳 <span class="sentiment">Yanayin Labari: Mummunan (Negatif) 😞</span></li>
+            </ul>
+            <p><strong>AI-Powered Feature:</strong> Muna amfani da fasahar AI don taƙaita labarai da kuma tantance yanayin su (kyakkyawan, mummunan, ko tsaka-tsaki) don saurin fahimta! 🤖</p>
+            <p>Don ƙarin labarai a harshen Hausa, duba <a href="http://www.newhausatop.blogspot.com" target="_blank">New Hausa Top Blog</a> wanda zai iya samar da sabbin labarai daga sassan Najeriya. 📡</p>
+        </section>
+
+        <section class="efcc-arrest">
+            <h2>EFCC Ta Kama Tsohon Ɗan Kwangila Bisa Zargin Damfarar Naira Biliyan 30</h2>
+            <p>Hukumar Yaki da Cin Hanci da Rashawa (EFCC), reshen Kaduna, ta kama Bashir Bello Ibrahim, tsohon ɗan kwangila na Gwamnatin Jihar Kaduna, bisa zargin damfarar Naira biliyan 30. 🚨</p>
+            <ul>
+                <li><strong>Kwangiloli na Bogi:</strong> Ibrahim ya raba kwangiloli na ƙarya, yana karɓar kayayyaki kamar gadon asibiti da magunguna ba tare da biyan masu kaya ba. 📜</li>
+                <li><strong>Kayayyaki da Aka Kwato:</strong> EFCC ta kwato motocin Hilux, ambulans, babura, da magunguna masu yawa, amma wasu sun lalace ko na jabu ne. 🚙💊</li>
+                <li><strong>Hadin Guiwa:</strong> Hukumar tana aiki tare da NAFDAC da Ma’aikatar Lafiya ta Kaduna don tantance kayan. 🩺</li>
+            </ul>
+            <p>EFCC ta ce za a gurfanar da Ibrahim a gaban kotu da zarar bincike ya ƙare. ⚖️</p>
+        </section>
+
+        <section class="security-reforms">
+            <h2>Yabo da Jinjina ga Ministan Tsaro Dr. Bello Matawalle</h2>
+            <p>Kungiyar Nigeria Anti-corruption and Integrity Movement ta yaba wa Ministan kasa a ma’aikatar tsaron Nijeriya, Dr Bello Matawalle, bisa sauye-sauyen tsaro da ya samar. 🌟</p>
+            <ul>
+                <li><strong>Farfaɗo da DICON:</strong> Dokar DICON ta 2023 ta sake tsara masana’antun kera kayan yaki na soji, suna samar da makamai da jiragen marasa matuki a cikin gida. 🛠️</li>
+                <li><strong>Ƙarfin Soji:</strong> An hallaka ‘yan ta’adda 8,000, an kama 11,600, an kwato makamai 10,000 a 2024. 💪</li>
+                <li><strong>Ceto Fararen Hula:</strong> An ceto fiye da mutane 8,000 a 2024, karuwar kaso 46% daga shekaru biyu da suka gabata. 🚨</li>
+                <li><strong>Tsaron Ruwa:</strong> Kirkirar Gulf of Guinea Maritime Task Force da sabbin jiragen sintiri ya ƙarfafa yaƙi da fashi a teku. 🌊</li>
+                <li><strong>Hadin Guiwa na Duniya:</strong> Tattaunawa da kasashen waje sun inganta horarwa da bayanan sirri. 🌍</li>
+            </ul>
+        </section>
+
+        <section class="market-prices">
+            <h2>Farashin Kayan Gona a Kasuwar Giwa, Kaduna – 15/05/2025</h2>
+            <img src="https://example.com/giwa-market-rainy-marble-text.jpg" alt="Giwa Central Market">
+            <p>Kamar yadda Lamine Yamal ke cin nasara a La Liga, kasuwar Giwa ta Kaduna tana cike da albarkar amfanin gona! 🌾⚽</p>
+            <ul>
+                <li><strong>Masara:</strong> ₦54,000 – ₦55,000</li>
+                <li><strong>Dawa (Guinea corn):</strong> ₦56,000 – ₦57,000</li>
+                <li><strong>Waken Soya:</strong> ₦89,000 – ₦90,000</li>
+                <li><strong>Waken Misra:</strong> ₦97,000 – ₦98,000</li>
+                <li><strong>Waken Zapa:</strong> ₦99,000 – ₦100,000</li>
+                <li><strong>Shinkafa:</strong> ₦45,000 – ₦46,000</li>
+                <li><strong>Gero:</strong> ₦60,000</li>
+                <li><strong>Barkono Mai Bushewa:</strong> ₦100,000 – ₦115,000</li>
+            </ul>
+        </section>
+
+        <!-- AdSense Ad Placement -->
+        <div class="ad-container">
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7930138357027632"
+                 crossorigin="anonymous"></script>
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-format="fluid"
+                 data-ad-layout-key="-6s+ea+2i-1i-4k"
+                 data-ad-client="ca-pub-7930138357027632"
+                 data-ad-slot="9507306077"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+
+        <section class="football-updates">
+            <h2>Lamine Yamal Ya Yi Daidai Da Ronaldo!</h2>
+            <p>👉 Yamal ya lashe La Liga sau biyu cikin shekaru uku, daidai da yawan kofunan da Cristiano Ronaldo ya lashe a shekaru tara a Spain! 😳👀</p>
+        </section>
+
+        <section class="raphinha-quote">
+            <h2>Raphinha: "Yanzu Mu Na Cin Kofunan Turai!"</h2>
+            <p>🎙️ Raphinha ya ce: "Yanzu dole mu ci kofunan Turai. Mun kusa cin nasara a wannan kakar, kuma kakar gaba ZA MU IYA!"</p>
+            <p>📅 A yau 16/05/2025, Barcelona tana shirye! 💪</p>
+        </section>
+
+        <section class="mostafa-news">
+            <h2>Mostafa Mohammed Ya Ƙi Buga Wasan Ƙarshe!</h2>
+            <p>🚨 Ɗan wasan Nantes, Mostafa Mohammed, ya ƙi buga wasa a ranar Asabar, 17/05/2025, da Montpellier saboda nuna adawa ga tallafin ƴan luwaɗi a Ligue 1, kuma Nantes za ta ci tararsa! 😳</p>
+        </section>
+    </main>
+    <footer>
+        <p>#GiwaMarket #Kaduna #Barcelona #LamineYamal #Raphinha #MostafaMohammed #Matawalle #EFCC #FagenWasanni</p>
+    </footer>
+    <script>
+        function filterNews() {
+            const filter = document.getElementById('news-filter').value;
+            const newsItems = document.querySelectorAll('#news-list li');
+
+            // Update the page title dynamically based on the selected category
+            let categoryName;
+            switch (filter) {
+                case 'crime':
+                    categoryName = 'Crime News';
+                    break;
+                case 'security':
+                    categoryName = 'Security News';
+                    break;
+                case 'market':
+                    categoryName = 'Market News';
+                    break;
+                case 'sports':
+                    categoryName = 'Sports News';
+                    break;
+                default:
+                    categoryName = 'All News';
+            }
+            document.title = `NewHausaTop - ${categoryName} | Fagen Wasanni`;
+
+            // Filter the news items
+            newsItems.forEach(item => {
+                const category = item.getAttribute('data-category');
+                if (filter === 'all' || category === filter) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html
