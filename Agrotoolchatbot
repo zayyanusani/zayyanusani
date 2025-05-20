@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AgrotoolChatbot - AI Farm Assistant</title>
+    <style>
+        /* Custom Farming Theme Colors */
+        :root {
+            --primary-green: #4CAF50;
+            --soil-brown: #8D6E63;
+            --sun-yellow: #FFEB3B;
+            --sky-blue: #87CEEB;
+        }
+
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            margin: 0;
+            background: linear-gradient(to bottom, var(--sky-blue), #f5f5f5);
+            min-height: 100vh;
+        }
+
+        /* Chat Container */
+        .chat-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        /* Chat Header */
+        .chat-header {
+            background: var(--primary-green);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+            position: relative;
+        }
+
+        .chat-header h1 {
+            margin: 0;
+            font-size: 1.8rem;
+        }
+
+        .language-toggle {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.2);
+            padding: 5px 10px;
+            border-radius: 20px;
+            cursor: pointer;
+        }
+
+        /* Chat Messages Area */
+        .chat-messages {
+            height: 500px;
+            overflow-y: auto;
+            padding: 20px;
+            background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><rect width="100" height="100" fill="%23f5f5f5"/></svg>');
+        }
+
+        /* Message Bubbles */
+        .message {
+            margin-bottom: 15px;
+            max-width: 70%;
+            animation: fadeIn 0.3s ease-in;
+        }
+
+        .user-message {
+            background: var(--primary-green);
+            color: white;
+            border-radius: 15px 15px 0 15px;
+            margin-left: auto;
+        }
+
+        .bot-message {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 15px 15px 15px 0;
+        }
+
+        .message-content {
+            padding: 12px 18px;
+        }
+
+        /* Farming Tools Section */
+        .tools-section {
+            padding: 20px;
+            background: #f8f9fa;
+            border-bottom: 2px solid #eee;
+        }
+
+        .tool-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .tool-item {
+            background: white;
+            border-radius: 10px;
+            padding: 10px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .tool-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .tool-image {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .tool-name {
+            margin-top: 8px;
+            color: var(--soil-brown);
+            font-size: 0.9rem;
+        }
+
+        /* Input Area */
+        .input-container {
+            display: flex;
+            padding: 1rem;
+            background: #f8f8f8;
+            border-top: 2px solid #eee;
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 12px;
+            border: 2px solid var(--primary-green);
+            border-radius: 25px;
+            margin-right: 10px;
+            font-size: 1rem;
+        }
+
+        .send-button {
+            background: var(--primary-green);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .send-button:hover {
+            background: #45a049;
+        }
+
+        /* Quick Action Buttons */
+        .quick-actions {
+            display: flex;
+            gap: 10px;
+            padding: 10px;
+            background: #f0f0f0;
+        }
+
+        .action-btn {
+            background: var(--soil-brown);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .chat-container {
+                margin: 0;
+                border-radius: 0;
+                height: 100vh;
+            }
+            
+            .chat-messages {
+                height: calc(100vh - 160px);
+            }
+
+            .tool-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <h1>🌱 AgrotoolChatbot</h1>
+            <div class="language-toggle">EN/HA</div>
+        </div>
+
+        <div class="quick-actions">
+            <button class="action-btn">Pest ID</button>
+            <button class="action-btn">Weather</button>
+            <button class="action-btn">Prices</button>
+        </div>
+
+        <div class="tools-section">
+            <h3 style="color: var(--primary-green); margin-bottom: 15px;">Kayan Aikin Gona</h3>
+            <div class="tool-grid">
+                <div class="tool-item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Hoe.jpg/1200px-Hoe.jpg" 
+                         class="tool-image" 
+                         alt="Fartanya">
+                    <div class="tool-name">Fartanya (Hoe)</div>
+                </div>
+
+                <div class="tool-item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/94/Cutlass.jpg" 
+                         class="tool-image" 
+                         alt="Garmahi">
+                    <div class="tool-name">Garmahi (Cutlass)</div>
+                </div>
+
+                <div class="tool-item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/5c/Watering-can.jpg" 
+                         class="tool-image" 
+                         alt="Tulu">
+                    <div class="tool-name">Tulu (Watering Can)</div>
+                </div>
+
+                <div class="tool-item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b6/Farm_basket.jpg" 
+                         class="tool-image" 
+                         alt="Kwatakwata">
+                    <div class="tool-name">Kwatakwata (Basket)</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="chat-messages">
+            <div class="message bot-message">
+                <div class="message-content">
+                    <p>Barka da zuwa! Yaya zan taimaka muku yau? 🌾<br>
+                    <small>Welcome! How can I help you today?</small></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="input-container">
+            <input type="text" class="chat-input" placeholder="Rubuta tambaya ko aika hoto...">
+            <button class="send-button">Aika</button>
+        </div>
+    </div>
+
+    <script>
+        const chatInput = document.querySelector('.chat-input');
+        const sendButton = document.querySelector('.send-button');
+        const chatMessages = document.querySelector('.chat-messages');
+
+        sendButton.addEventListener('click', addMessage);
+
+        function addMessage() {
+            const messageText = chatInput.value.trim();
+            if(messageText) {
+                const userMessage = document.createElement('div');
+                userMessage.className = 'message user-message';
+                userMessage.innerHTML = `
+                    <div class="message-content">
+                        <p>${messageText}</p>
+                    </div>
+                `;
+                chatMessages.appendChild(userMessage);
+                
+                chatInput.value = '';
+                
+                setTimeout(() => {
+                    const botMessage = document.createElement('div');
+                    botMessage.className = 'message bot-message';
+                    botMessage.innerHTML = `
+                        <div class="message-content">
+                            <p>Na gane. Ina aiwatar da amsar ku... ⏳</p>
+                        </div>
+                    `;
+                    chatMessages.appendChild(botMessage);
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                }, 1000);
+            }
+        }
+    </script>
+</body>
+</html
