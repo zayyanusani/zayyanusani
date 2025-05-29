@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Recommendation App with Notification Panel</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <h2>Learning Path</h2>
+            <div class="steps">
+                <h3>Software Development - Module 3</h3>
+                <ul>
+                    <li class="completed">Backend web development</li>
+                    <li class="completed">The Client Server Model [Clients]</li>
+                    <li class="current">Capstone Project: Movie Recommendation App</li>
+                    <li>Introduction to Node.js and why it...</li>
+                    <li>PROJECT</li>
+                    <li>Understanding NPM: Node Package Man...</li>
+                    <li>EXPLAIN why nodejs is powerful for...</li>
+                    <li>MINI-PROJECT</li>
+                    <li>Building REST API with Express.js</li>
+                    <li>Middleware and error handling</li>
+                    <li>COURSE</li>
+                    <li>Create a simple REST API with Expr...</li>
+                    <li>Connecting to a Database PostgreS...</li>
+                    <li>COURSE</li>
+                    <li>Introduction to databases Postgre...</li>
+                    <li>CRUD operations with PostgreSQL</li>
+                    <li>STORE and retrieve data in Postgre...</li>
+                    <li>MINI-PROJECT</li>
+                </ul>
+            </div>
+            <div class="steps">
+                <h3>Software Development - Module 2</h3>
+                <ul>
+                    <li>Introduction to React</li>
+                    <li>Components and Templates</li>
+                    <li>Dynamic Values in Templates</li>
+                    <li>Multiple Components</li>
+                    <li>Adding Styles to react components</li>
+                    <li>Click Events</li>
+                    <li>Create a "Hello World" React app...</li>
+                    <li>MINI-PROJECT</li>
+                    <li>Using State [useState Hook]</li>
+                    <li>Intro to React Dev Tool</li>
+                    <li>Outputting Lists</li>
+                    <li>Props</li>
+                    <li>Reusing Components</li>
+                    <li>Functions as Props</li>
+                    <li>useEffect Hook</li>
+                    <li>useEffect Dependencies</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <button class="toggle-notifications">Toggle Notifications</button>
+            <h1>Capstone Project: Movie Recommendation App</h1>
+            <section>
+                <h2>Project Overview</h2>
+                <p>Build a full-featured movie recommendation platform where users can discover, search, and save their favorite movies.</p>
+            </section>
+            <section>
+                <h2>Core Features</h2>
+                <h3>1. User Authentication</h3>
+                <ul>
+                    <li>User registration and login</li>
+                    <li>Secure password handling</li>
+                    <li>JWT token-based authentication</li>
+                </ul>
+                <h3>2. Movie Discovery</h3>
+                <ul>
+                    <li>Search movies by title, genre, or year</li>
+                    <li>Filter by rating, release date, and popularity</li>
+                    <li>View detailed movie information</li>
+                    <li>Get personalized recommendations</li>
+                </ul>
+                <h3>3. User Features</h3>
+                <ul>
+                    <li>Save favorite movies</li>
+                    <li>Create custom watchlists</li>
+                    <li>Rate and review movies</li>
+                    <li>User profile management</li>
+                </ul>
+                <h3>4. Technical Requirements</h3>
+                <ul>
+                    <li>React frontend with modern UI components</li>
+                    <li>Express.js backend with RESTful API</li>
+                    <li>MongoDB database for user data</li>
+                    <li>Integration with external movie API (e.g., TMDB)</li>
+                    <li>Responsive design for mobile and desktop</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Timeline (Weeks 14-16)</h2>
+                <ul>
+                    <li>Week 14: Setup, Basic Features & Authentication</li>
+                    <li>Week 15: Advanced Features & Integration</li>
+                    <li>Week 16: Polish & Deployment</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Deployment</h2>
+                <ul>
+                    <li>Frontend: Deploy to Netlify/Vercel</li>
+                    <li>Backend: Deploy to Render/Heroku</li>
+                    <li>Set up CI/CD pipeline</li>
+                </ul>
+            </section>
+            <section>
+                <h2>Stretch Goals</h2>
+                <ul>
+                    <li>Social features (follow other users, share lists)</li>
+                    <li>Advanced recommendation algorithm</li>
+                    <li>Movie trailer integration</li>
+                    <li>PWA implementation</li>
+                </ul>
+            </section>
+            <div class="navigation">
+                <button class="prev">Previous step</button>
+                <button class="next">Next step</button>
+            </div>
+        </div>
+
+        <!-- Notification Panel -->
+        <div class="notification-panel">
+            <div class="header">
+                <div class="user-info">
+                    <h2>Zayyanu Sani</h2>
+                    <p>You have 2 messages</p>
+                </div>
+                <div class="tabs">
+                    <span class="active">NOTIFICATIONS</span>
+                    <span>OPEN EVENTS</span>
+                </div>
+            </div>
+            <div class="content">
+                <section>
+                    <ul>
+                        <li>Connect frontend and backend systems</li>
+                        <li>Implement authentication flows</li>
+                        <li>Deploy fullstack applications</li>
+                        <li>Work with external APIs</li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>Technical Skills Coverage</h3>
+                    <h4>Fullstack Integration</h4>
+                    <ul>
+                        <li>Making API requests from React frontend</li>
+                        <li>Handling authentication & user sessions</li>
+                        <li>Managing state in a Fullstack app</li>
+                    </ul>
+                    <h4>Authentication & Deployment</h4>
+                    <ul>
+                        <li>Implementing JWT authentication</li>
+                        <li>Deploying frontend (Netlify/Vercel)</li>
+                        <li>Deploying backend (Render/Heroku)</li>
+                    </ul>
+                </section>
+                <section>
+                    <h3>Hands-On Projects</h3>
+                    <ol>
+                        <li>Connect React frontend to Express backend</li>
+                        <li>Implement authentication in a Fullstack app</li>
+                    </ol>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const toggleBtn = document.querySelector('.toggle-notifications');
+        const notificationPanel = document.querySelector('.notification-panel');
+
+        toggleBtn.addEventListener('click', () => {
+            notificationPanel.classList.toggle('active');
+        });
+    </script>
+</body>
+</html
